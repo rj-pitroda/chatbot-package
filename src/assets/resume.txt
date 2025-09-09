@@ -1,0 +1,102 @@
+Raj PitrodaHomeAboutSkillsProjectsContactHomeAboutSkillsProjectsContactI'm Raj Pitroda  Senior Software EngineerResume / CVContact Me :     Designed By FreepikDesigned By Freepik Senior Software Engineer with  5+ years  of experience.Experienced frontend developer proficient in HTML, CSS, SCSS and JavaScript, with expertise in React JS and Next JS. Dedicated to crafting intuitive user interfaces, optimizing performance, and embracing modern web technologies. Passionate about  impactful digital experiences. Let's collaborate on creating exceptional web applications.Full NamePitroda Rajkumar Kamleshbhai Emailpitrodarj@gmail.com; pitrodaraj1512@gmail.comCopy Contact No+91 81550 28499Copy Linked Inhttps://www.linkedin.com/in/pitroda-rajkumar-09a861271/CopySkillsReact JS5+ YearsRedux3+ YearsTypescript4+ YearsJavascript4+ YearsSCSS1.5+ YearsCSS3+ YearsNext JS2+ YearsNode JS1+ YearsNest JS1+ YearsPostgresql0.5+ YearsGithub4+ YearsDesigned By FreepikDesigned By FreepikProjects1. Health-Ease
+                Developed a comprehensive e-commerce and telemedicine platform allowing users to purchase medicines,
+                book doctor appointments (video, clinic, and home visits), and order lab tests, built with seamless
+                Zoom SDK integration. The platform incorporates several modules and features:
+              
+              
+                User authentication and role-based access.
+                Doctor appointment booking with time-slot selection for video calls (via Zoom SDK), clinic visits, and home visits.
+                Online purchase of medicines and health-related products.
+                Integrated lab test ordering and report access.
+                Cart management for streamlined purchases.
+                Secure payment processing for all transactions.
+                Intuitive user interface for easy navigation and booking.
+                Multi-language support for a diverse user base.
+                Real-time notifications for appointments and order status updates.
+                Comprehensive admin dashboard for managing appointments, inventory, and user activity.
+              
+              
+                Technology used: Next JS, Typescript, Redux
+              2. Currency Exchange
+              Developed a comprehensive currency exchange platform with real-time updates, user, currency, Beneficiary management, and Power BI integration.
+              The platform facilitated secure and real-time currency exchange, supported by an efficient management system with the following features:
+             
+            
+              User authentication: login, registration, forgot password, reset password.
+              Role-based authorization to manage secure access for admins, affiliates, and users.
+              Configurable modules: affiliate settings, admin pages, beneficiary setup, currency and country management, and task assignments.
+              User profile management: edit details, manage roles, and upload KYC/verification documents.
+              Live exchange currency rates and updates using WebSocket.
+              Power BI reports integration for advanced analytics and insights.
+              Comprehensive admin dashboard for system monitoring and control.
+              Responsive design for seamless access across devices.
+              Enhanced data security and encryption for sensitive financial transactions.
+            
+            
+              Technology used: React JS, Typescript, Recoil
+            3. Dynamic Form Building
+              Developed a dynamic form builder website. A dynamic form builder website enabling users to create, configure, and manage custom forms with various controls and dynamic validation.
+            
+            The platform incorporates several modules and features:
+            
+              Dynamic form creation and configuration.
+              Administration and configuration modules.
+              Lookup management.
+              Vector management.
+              Dynamic form controls including text fields, dropdowns, map controls, HTML editor, and sketchpad controls, with dynamic validation.
+              Role-based access to forms.
+              Google Map Integration.
+              Workflow management.
+            
+            
+              Technology used: React JS, Typescript, Redux, Nest JS
+            4. SM-FRONT (E-COMMERCE MEDICINE PURCHASE)
+              Developed an e-commerce platform with multi-language support for purchasing medicines and some SSR Page implementation for SEO.
+              The platform includes several integrated modules and features:
+            
+            
+              User authentication: login, registration, forgot password, and password reset functionalities.
+              Public information pages: Contact Us, Terms and Conditions, and About Us.
+              A home page displaying the latest, trending, and most purchased medicines.
+              A prescription upload feature enabling users to attach doctor prescriptions for specific medicine orders.
+              Comprehensive cart management: add to cart, remove from cart.
+              A paginated and filterable medicine listing page to enhance user convenience.
+              Support for multiple delivery addresses, offering flexible order placement.
+              Multi-language support to cater to a diverse user base.
+              Razorpay integration for secure payment processing.
+              An image gallery for medicines and an order tracking feature for customers.
+            
+            
+              Technology used: Next JS, Typescript, Redux
+            5. SM-ADMIN (E-COMMERCE ADMIN)
+              Developed an e-commerce admin panel for managing products, orders, users, and inventory, with authentication and role-based access.
+              This platform includes several integrated modules and features:
+            
+            
+              User authentication: login, registration, forgot password, and password reset functionalities.
+              Product configuration.
+              Order verification and tracking.
+              User and role management.
+              Inventory management.
+              Medicine list management and other essential modules.
+            
+            
+              Technology used: React JS, Typescript, Redux
+            6. Loanfity
+              Developed a loan simulator and application platform with Nafath integration, enabling users to simulate loan options and securely apply for loans.
+              The platform includes several robust modules and features:
+            
+            
+              User authentication via Nafath for secure, national-level identity verification.
+              Dynamic loan simulator for calculating monthly installments, interest rates, and payment schedules.
+              Loan application form with document upload and real-time status tracking.
+              Personalized dashboard displaying loan simulation results and application history.
+              Integration with external APIs to ensure up-to-date financial data and loan responses.
+              Responsive and user-friendly design for seamless access across devices.
+              Real-time notifications for application updates and loan-related alerts.
+              Firebase push notification.
+              Robust data security and encryption to safeguard sensitive financial information.
+            
+            
+              Technology used: React JS, Typescript
+            Get In TouchNameName​Mobile NoMobile NoEmailEmailSubjectSubjectMessageMessageSend MessageClearDesigned By Freepik     Developed By: Raj Pitroda©2025 Copyright all rights reservedJune - 2025
