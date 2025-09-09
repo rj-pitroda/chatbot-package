@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { BiCollapseAlt, BiExpandAlt } from "react-icons/bi";
-import { CgClose } from "react-icons/cg";
+import cgClose from "../../assets/closeIcn.svg";
+import collapseIcn from "../../assets/collapseIcn.svg";
+import expandIcn from "../../assets/expandIcn.svg";
 
 import {
   cleanGeminiOutput,
@@ -8,7 +9,7 @@ import {
   isValidHex,
 } from "../../utils/helperFun";
 import { ChatbotLogo } from "./ChatbotLogo";
-import ChatBotMessages from "./ChatBotMessages";
+import ChatBotMessages from "./ChatbotMessage";
 import ChatbotBubbleLogo from "./ChatbotBubbleLogo";
 
 export type Props = {
@@ -136,27 +137,33 @@ export const Chatbot = (props: Props) => {
             </span>
           </div>
           <div
-            className="cursor-pointer"
+            className="cursor-pointer -mr-1"
             onClick={() => setIsFullScreen(!isFullScreen)}
           >
             {isFullScreen ? (
-              <BiCollapseAlt
-                fontWeight={"800"}
-                fontSize={20}
-                className="hidden transition-all duration-100 ease-in hover:scale-[1.2] sm:block"
+              <img
+                src={collapseIcn}
+                height={25}
+                width={25}
+                className="transition-all duration-100 ease-in hover:scale-[1.2]"
               />
             ) : (
-              <BiExpandAlt
-                fontWeight={"800"}
-                fontSize={18}
-                className="hidden transition-all duration-100 ease-in hover:scale-[1.2] sm:block"
-              />
+              <div>
+                <img
+                  src={expandIcn}
+                  height={23}
+                  width={23}
+                  className="transition-all duration-100 ease-in hover:scale-[1.2]"
+                />
+              </div>
             )}
           </div>
           <div className="cursor-pointer" onClick={handleToggleChatbot}>
-            <CgClose
-              fontSize={18}
-              className="transition-all duration-100 ease-in hover:scale-[1.2]"
+            <img
+              src={cgClose}
+              height={15}
+              width={15}
+              className="transition-all duration-100 ease-in hover:scale-[1.2] !fill-white"
             />
           </div>
         </div>
