@@ -1,9 +1,9 @@
 # Raj Chatbot
 
-[![npm version](https://img.shields.io/npm/v/raj-chatbot.svg)](https://www.npmjs.com/package/raj-chatbot)
-[![npm downloads](https://img.shields.io/npm/dm/raj-chatbot.svg)](https://www.npmjs.com/package/raj-chatbot)
-[![license](https://img.shields.io/npm/l/raj-chatbot.svg)](LICENSE)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/raj-chatbot)](https://bundlephobia.com/package/raj-chatbot)
+[![npm version](https://img.shields.io/npm/v/rj_chatbot.svg)](https://www.npmjs.com/package/rj_chatbot)
+[![npm downloads](https://img.shields.io/npm/dm/rj_chatbot.svg)](https://www.npmjs.com/package/rj_chatbot)
+[![license](https://img.shields.io/npm/l/rj_chatbot.svg)](LICENSE)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/rj_chatbot)](https://bundlephobia.com/package/rj_chatbot)
 
 A customizable and lightweight **React chatbot widget** built with **TypeScript, Tailwind CSS, and Vite**.  
 Easily embeddable into any React project, with support for **predefined questions**, **dynamic responses**, and **API/AI integrations** (like Gemini, OpenAI, or your custom backend).  
