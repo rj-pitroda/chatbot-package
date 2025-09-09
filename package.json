@@ -1,8 +1,8 @@
 {
-  "name": "raj-chatbot",
+  "name": "rj_chatbot",
+  "version": "1.0.0",
   "private": false,
   "description": "A customizable and lightweight React chatbot widget built with TypeScript, Tailwind CSS, and Vite. The package provides a ready-to-use, themeable chat interface with support for predefined questions, dynamic responses, and easy integration with AI or custom APIs. Designed for reusability, developer experience, and quick embedding into any React project.",
-  "version": "1.0.8",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -10,6 +10,11 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rj-pitroda/chatbot-package.git"
+  },
+  "homepage": "https://github.com/rj-pitroda/chatbot-package#readme",
   "scripts": {
     "dev": "vite",
     "build:css": "postcss src/index.css -o dist/index.css",
