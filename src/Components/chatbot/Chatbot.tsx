@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import cgClose from "../../assets/closeIcn.svg";
-import collapseIcn from "../../assets/collapseIcn.svg";
-import expandIcn from "../../assets/expandIcn.svg";
+import { BiCollapseAlt, BiExpandAlt } from "react-icons/bi";
+import { CgClose } from "react-icons/cg";
 
 import {
   cleanGeminiOutput,
@@ -21,7 +20,7 @@ export type Props = {
   primaryHaxColor?: string;
   secondaryHaxColor?: string;
   botBubbleHaxColor?: string;
-  requestChatResponse: (
+  onChatResponse: (
     question: string,
     setIsLoading: Dispatch<SetStateAction<boolean>>,
     appendChatResponse: (msg: string) => void
@@ -41,7 +40,7 @@ export const Chatbot = (props: Props) => {
     secondaryHaxColor = isValidHex(props.secondaryHaxColor)
       ? props.secondaryHaxColor
       : getLighterColor(primaryHaxColor),
-    requestChatResponse,
+    onChatResponse,
     botBubbleHaxColor = "#fff",
   } = props;
 
@@ -92,7 +91,7 @@ export const Chatbot = (props: Props) => {
       return;
     }
 
-    requestChatResponse(finalPrompt, setIsLoading, appendChatResponse);
+    onChatResponse(finalPrompt, setIsLoading, appendChatResponse);
   };
 
   const appendChatResponse = (newAns: string) =>
@@ -100,7 +99,7 @@ export const Chatbot = (props: Props) => {
 
   const handleRetry = (index: number) => {
     setAnswerArr((prev) => prev.slice(0, -1));
-    requestChatResponse(questionArr[index], setIsLoading, appendChatResponse);
+    onChatResponse(questionArr[index], setIsLoading, appendChatResponse);
   };
 
   return (
@@ -137,33 +136,27 @@ export const Chatbot = (props: Props) => {
             </span>
           </div>
           <div
-            className="cursor-pointer -mr-1"
+            className="cursor-pointer"
             onClick={() => setIsFullScreen(!isFullScreen)}
           >
             {isFullScreen ? (
-              <img
-                src={collapseIcn}
-                height={25}
-                width={25}
-                className="transition-all duration-100 ease-in hover:scale-[1.2]"
+              <BiCollapseAlt
+                fontWeight={"800"}
+                fontSize={20}
+                className="hidden transition-all duration-100 ease-in hover:scale-[1.2] sm:block"
               />
             ) : (
-              <div>
-                <img
-                  src={expandIcn}
-                  height={23}
-                  width={23}
-                  className="transition-all duration-100 ease-in hover:scale-[1.2]"
-                />
-              </div>
+              <BiExpandAlt
+                fontWeight={"800"}
+                fontSize={18}
+                className="hidden transition-all duration-100 ease-in hover:scale-[1.2] sm:block"
+              />
             )}
           </div>
           <div className="cursor-pointer" onClick={handleToggleChatbot}>
-            <img
-              src={cgClose}
-              height={15}
-              width={15}
-              className="transition-all duration-100 ease-in hover:scale-[1.2] !fill-white"
+            <CgClose
+              fontSize={18}
+              className="transition-all duration-100 ease-in hover:scale-[1.2]"
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useCallback } from "react";
 import { Chatbot } from "./Components/chatbot/Chatbot";
-import resumeTextContent from "./assets/resume.txt?raw";
+import { RESUME_TXT_CONTEXT } from "./utils/constant";
 
 const JD_COMPARE_TEXT = "Please compare with this JD: ";
 const ERROR_MSG = "Sorry, something went wrong while fetching the answer.";
@@ -13,7 +13,7 @@ const PREDEFINED_QUESTIONS = [
 ];
 
 function App() {
-  const requestChatResponse = useCallback(
+  const onChatResponse = useCallback(
     async (
       question: string,
       setIsLoading: Dispatch<SetStateAction<boolean>>,
@@ -32,7 +32,7 @@ function App() {
                   role: "user",
                   parts: [
                     {
-                      text: `You are a helpful assistant. Use the following context to answer questions:\n\n${resumeTextContent}\n\nQuestion: ${question}\n\nGive me the answer in properly formatted, readable responsive HTML that I can insert directly inside my page. If you include CSS, wrap it so all styles are scoped under a single wrapper class, do not include top margin, add white background to wrapper class. Do not include forms.`,
+                      text: `You are a helpful assistant. Use the following context to answer questions:\n\n${RESUME_TXT_CONTEXT}\n\nQuestion: ${question}\n\nGive me the answer in properly formatted, readable responsive HTML that I can insert directly inside my page. If you include CSS, wrap it so all styles are scoped under a single wrapper class, do not include top margin, add white background to wrapper class. Do not include forms.`,
                     },
                   ],
                 },
@@ -70,7 +70,7 @@ function App() {
         errorMsg={ERROR_MSG}
         botTitle="Raj's Assistant"
         defaultMsg=" Hey there 👋 I’m Raj’s personal assistant. How can I help you?"
-        requestChatResponse={requestChatResponse}
+        onChatResponse={onChatResponse}
         botBubbleHaxColor="#fff"
       />
     </>

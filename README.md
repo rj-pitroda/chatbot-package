@@ -34,7 +34,7 @@ export default function App() {
   const requestChatResponse = async (
     question: string,
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
-    appendChatResponse: (msg: string) => void
+    onChatResponse: (msg: string) => void
   ) => {
     setIsLoading(true);
 
@@ -45,9 +45,9 @@ export default function App() {
         body: JSON.stringify({ question }),
       });
       const data = await res.json();
-      appendChatResponse(data.answer);
+      onChatResponse(data.answer);
     } catch (err) {
-      appendChatResponse("Something went wrong. Please try again.");
+      onChatResponse("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -83,4 +83,4 @@ export default function App() {
 | `primaryHaxColor`     | `string (hex)`                                                  | `#876AE7`          | Primary theme color (used in header, buttons, highlights)  |
 | `secondaryHaxColor`   | `string (hex)`                                                  | lighter of primary | Secondary theme color (used in user bubbles, highlights)   |
 | `botBubbleHaxColor`   | `string (hex)`                                                  | `#FFFFFF`          | Background color of floating launcher button               |
-| `requestChatResponse` | `(question, setIsLoading, appendChatResponse) => Promise<void>` | –                  | Function to handle fetching and appending responses        |
+| `requestChatResponse` | `(question, setIsLoading, onChatResponse) => Promise<void>` | –                  | Function to handle fetching and appending responses        |
