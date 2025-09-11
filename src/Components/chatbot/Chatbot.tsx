@@ -12,7 +12,7 @@ import ChatBotMessages from "./ChatbotMessage";
 import ChatbotBubbleLogo from "./ChatbotBubbleLogo";
 
 export type Props = {
-  predefinedQuestions: string[];
+  predefinedQuestions?: string[];
   jdCompareText: string;
   errorMsg: string;
   botTitle: string;
@@ -24,7 +24,7 @@ export type Props = {
     question: string,
     setIsLoading: Dispatch<SetStateAction<boolean>>,
     appendChatResponse: (msg: string) => void
-  ) => Promise<void>;
+  ) => void;
 };
 
 export const Chatbot = (props: Props) => {
@@ -85,7 +85,7 @@ export const Chatbot = (props: Props) => {
     if (promptMsg.includes(JD_COMPARE_TEXT)) {
       finalPrompt +=
         " Give in tabular format also provide the how many percentage fit.";
-    } else if (promptMsg === PREDEFINED_QUESTIONS.at(-1)) {
+    } else if (promptMsg === PREDEFINED_QUESTIONS?.at(-1)) {
       setAnswerArr((prev) => [...prev, "Please add your job description."]);
       setQuestion(JD_COMPARE_TEXT);
       return;

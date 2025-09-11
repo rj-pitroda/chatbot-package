@@ -7,7 +7,7 @@ import { ChatLoader } from "./ChatLoader";
 type Props = {
   containerRef: RefObject<HTMLDivElement>;
   defaultMsg: string;
-  PREDEFINED_QUESTIONS: string[];
+  PREDEFINED_QUESTIONS?: string[];
   isLoading: boolean;
   handleAsk: (question: string) => void;
   questionArr: string[];
@@ -43,23 +43,25 @@ const ChatBotMessages = (props: Props) => {
         <div className="max-w-[80%] rounded-2xl rounded-tl-none bg-white pt-2 text-sm shadow-sm">
           <p className="px-3 pb-2">{defaultMsg}</p>
 
-          <div className="border-t-1 border-gray-300 gap-2 py-0 pb-0.5 text-sm">
-            {PREDEFINED_QUESTIONS.map((x) => (
-              <p
-                className={`border-t border-gray-300 py-1 text-center font-semibold ${
-                  isLoading
-                    ? "cursor-not-allowed text-gray-300"
-                    : "cursor-pointer text-blue-400"
-                }`}
-                key={x}
-                onClick={() => {
-                  handleAsk(x);
-                }}
-              >
-                {x}
-              </p>
-            ))}
-          </div>
+          {PREDEFINED_QUESTIONS?.length > 0 && (
+            <div className="border-t-1 border-gray-300 gap-2 py-0 pb-0.5 text-sm">
+              {PREDEFINED_QUESTIONS.map((x) => (
+                <p
+                  className={`border-t border-gray-300 py-1 text-center font-semibold ${
+                    isLoading
+                      ? "cursor-not-allowed text-gray-300"
+                      : "cursor-pointer text-blue-400"
+                  }`}
+                  key={x}
+                  onClick={() => {
+                    handleAsk(x);
+                  }}
+                >
+                  {x}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
