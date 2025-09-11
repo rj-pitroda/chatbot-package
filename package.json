@@ -1,6 +1,6 @@
 {
   "name": "simple-react-chatbot",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "private": false,
   "description": "A customizable and lightweight React chatbot widget built with TypeScript, Tailwind CSS, and Vite. The package provides a ready-to-use, themeable chat interface with support for predefined questions, dynamic responses, and easy integration with AI or custom APIs. Designed for reusability, developer experience, and quick embedding into any React project.",
   "type": "module",
@@ -12,6 +12,14 @@
     "README.md",
     "LICENSE"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./index.css": "./dist/index.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rj-pitroda/chatbot-package.git"

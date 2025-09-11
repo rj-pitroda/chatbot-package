@@ -12,15 +12,7 @@ Easily embeddable into any React project, with support for **predefined question
 
 ## 🎬 Demo
 
-### **Option A: Autoplay GIF**
-
 ![Chatbot Demo](https://raw.githubusercontent.com/rj-pitroda/chatbot-package/main/public/preview.gif)
-
-### **Option B: Video Link (needs click)**
-
-[![Watch Demo Video](https://img.shields.io/badge/watch-demo-blue)](https://raw.githubusercontent.com/rj-pitroda/chatbot-package/main/public/preview.mp4)
-
----
 
 ---
 
@@ -40,64 +32,26 @@ Easily embeddable into any React project, with support for **predefined question
 npm install simple-react-chatbot
 # or
 yarn add simple-react-chatbot
+```
 
-## 📦 Installation
+---
 
-```bash
-npm install simple-raj-chatbot
-# or
-yarn add simple-raj-chatbot
+## 🚀 Basic Usage
 
-
+```tsx
 import { Chatbot } from "simple-react-chatbot";
-import { useCallback } from 'react';
+import "simple-react-chatbot/index.css";
 
 export default function App() {
-  const onChatResponse = useCallback(
-    async (
-      question: string,
-      setIsLoading: Dispatch<SetStateAction<boolean>>,
-      appendChatResponse: (msg: string) => void
-    ) => {
-      try {
-        setIsLoading(true);
-        const response = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              contents: [
-                {
-                  role: "user",
-                  parts: [
-                    {
-                      text: `You are a helpful assistant. Use the following context to answer questions:\n\n${RESUME_TXT_CONTEXT}\n\nQuestion: ${question}\n\nGive me the answer in properly formatted, readable responsive HTML that I can insert directly inside my page. If you include CSS, wrap it so all styles are scoped under a single wrapper class, do not include top margin, add white background to wrapper class. Do not include forms.`,
-                    },
-                  ],
-                },
-              ],
-            }),
-          }
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${await response.text()}`);
-        }
-        const data = await response.json();
-        const raw =
-          data?.candidates?.[0]?.content?.parts?.[0]?.text ??
-          data?.candidates?.[0]?.content?.text;
-        if (!raw) throw new Error("No response from Gemini");
-        appendChatResponse(raw);
-      } catch (err: any) {
-        console.error("Gemini API error:", err.message ?? err);
-        appendChatResponse(ERROR_MSG);
-      } finally {
-        setIsLoading(false);
-      }
-    },
-    []
-  );
+  const onChatResponse = async (
+    question: string,
+    setIsLoading: (loading: boolean) => void,
+    appendChatResponse: (msg: string) => void
+  ) => {
+    setIsLoading(true);
+    appendChatResponse("This is a sample static response");
+    setIsLoading(false);
+  };
 
   return (
     <Chatbot
@@ -115,16 +69,92 @@ export default function App() {
     />
   );
 }
+```
 
-| Prop                  | Type                                                        | Default            | Description                                                |
-| --------------------- | ----------------------------------------------------------- | ------------------ | ---------------------------------------------------------- |
-| `botTitle`            | `string`                                                    | –                  | Title displayed in the chatbot header                      |
-| `defaultMsg`          | `string`                                                    | –                  | Default welcome message shown on chat open                 |
-| `predefinedQuestions` | `string[]`                                                  | –                  | List of quick prompts shown under the first message        |
-| `jdCompareText`       | `string`                                                    | –                  | Special keyword to trigger job description comparison flow |
-| `errorMsg`            | `string`                                                    | –                  | Message shown when an API call fails                       |
-| `primaryHaxColor`     | `string (hex)`                                              | `#876AE7`          | Primary theme color (used in header, buttons, highlights)  |
-| `secondaryHaxColor`   | `string (hex)`                                              | lighter of primary | Secondary theme color (used in user bubbles, highlights)   |
-| `botBubbleHaxColor`   | `string (hex)`                                              | `#FFFFFF`          | Background color of floating launcher button               |
-| `onChatResponse`      | `(question, setIsLoading, onChatResponse) => Promise<void>` | –                  | Function to handle fetching and appending responses        |
+---
 
+## 🚀✨ Integration with AI APIs (ChatGPT, Gemini, Grok, … )
+
+```tsx
+import { Chatbot } from "simple-react-chatbot";
+import "simple-react-chatbot/index.css";
+
+
+export default function App() {
+const onChatResponse = async (
+  question: string,
+  setIsLoading: (loading: boolean) => void,
+  appendChatResponse: (msg: string) => void
+  ) => {
+  try {
+    setIsLoading(true);
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [
+            {
+              role: "user",
+              parts: [
+                {
+                  text: question, // 👈 Send user question directly
+                },
+              ],
+            },
+          ],
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${await response.text()}`);
+    }
+
+    const data = await response.json();
+    const raw =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ??
+      data?.candidates?.[0]?.content?.text;
+
+    if (!raw) throw new Error("No response from Gemini");
+    appendChatResponse(raw);
+  } catch (err: any) {
+    console.error("Gemini API error:", err.message ?? err);
+    appendChatResponse("⚠️ Something went wrong. Please try again.");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+  return (
+    <Chatbot
+      botTitle="AI Chatbot"
+      defaultMsg="Ask me anything!"
+      predefinedQuestions={[
+        "Tell me about React",
+        "Explain Tailwind CSS",
+        "What is Vite?",
+      ]}
+      errorMsg="Failed to fetch response"
+      onChatResponse={onChatResponse}
+    />
+  );
+}
+```
+
+---
+
+## ⚙️ Props
+
+| Prop                  | Type                                                            | Default            | Description                                                |
+| --------------------- | --------------------------------------------------------------- | ------------------ | ---------------------------------------------------------- |
+| `botTitle`            | `string`                                                        | –                  | Title displayed in the chatbot header                      |
+| `defaultMsg`          | `string`                                                        | –                  | Default welcome message shown on chat open                 |
+| `predefinedQuestions` | `string[]`                                                      | –                  | List of quick prompts shown under the first message        |
+| `jdCompareText`       | `string`                                                        | –                  | Special keyword to trigger job description comparison flow |
+| `errorMsg`            | `string`                                                        | –                  | Message shown when an API call fails                       |
+| `primaryHaxColor`     | `string (hex)`                                                  | `#876AE7`          | Primary theme color (used in header, buttons, highlights)  |
+| `secondaryHaxColor`   | `string (hex)`                                                  | lighter of primary | Secondary theme color (used in user bubbles, highlights)   |
+| `botBubbleHaxColor`   | `string (hex)`                                                  | `#FFFFFF`          | Background color of floating launcher button               |
+| `onChatResponse`      | `(question, setIsLoading, appendChatResponse) => Promise<void>` | –                  | Function to handle fetching and appending responses        |
