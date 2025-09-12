@@ -64,17 +64,28 @@ const ChatbotBubbleLogo = (props: Props) => {
               style={{ backgroundColor: secondaryHaxColor }}
             >
               <div
-                className="size-2 animate-bounce rounded-full "
-                style={{ backgroundColor: primaryHaxColor }}
-              ></div>
+                className="size-2 animate-bounce rounded-full"
+                style={{
+                  backgroundColor: primaryHaxColor,
+                  animationDelay: "0ms",
+                }}
+              />
+
               <div
-                className="size-2 animate-bounce rounded-full  delay-100"
-                style={{ backgroundColor: primaryHaxColor }}
-              ></div>
+                className="size-2 animate-bounce rounded-full"
+                style={{
+                  backgroundColor: primaryHaxColor,
+                  animationDelay: "200ms",
+                }}
+              />
+
               <div
-                className="size-2 animate-bounce rounded-full  delay-150"
-                style={{ backgroundColor: primaryHaxColor }}
-              ></div>
+                className="size-2 animate-bounce rounded-full"
+                style={{
+                  backgroundColor: primaryHaxColor,
+                  animationDelay: "400ms",
+                }}
+              />
             </div>
           )}
           <img src={chatLogo} alt={"logo"} height={"40px"} width={"40px"} />
